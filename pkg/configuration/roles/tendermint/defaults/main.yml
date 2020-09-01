@@ -23,6 +23,9 @@ tendermint_p2p_port: 26656
 tendermint_rpc_port: 26657
 tendermint_abci_port: 26658
 
+# versions 0.22.8 and 0.31.5 have different node_key.json format
+tendermint_node_key_jq_loc: {{'".pub_key"' if (tm_version == '0.22.8') else '".Key.pub_key"' }}
+
 directories:
   - "{{ tendermint_home }}"
 
